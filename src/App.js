@@ -17,7 +17,7 @@ class App extends Component{
   };
 
   deleteChangedHandler = (index) => {
-    const text = this.state.unserInput.split('');
+    const text = [...this.state.unserInput];
     text.splice(index , 1);
     const updatedText = text.join('');
     this.setState({unserInput: updatedText});
@@ -25,7 +25,7 @@ class App extends Component{
 
   render(){
 
-    const charList =  this.state.unserInput.split('').map((char, index) => {
+    const charList =  [...this.state.unserInput].map((char, index) => {
         return <Char 
         character={char} 
         key={index}
